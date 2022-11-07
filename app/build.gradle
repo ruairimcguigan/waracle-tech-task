@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply from: "$rootProject.projectDir/config/buildsystem/common_build.gradle"
+
+android {
+    compileSdk AppConfig.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.waracle.techtask"
+        minSdk AppConfig.minSdkVersion
+        targetSdk AppConfig.targetSdkVersion
+
+        testInstrumentationRunner "com.waracle.techtask.testrunner.MockTestRunner"
+        consumerProguardFiles AppConfig.consumerProguardFiles
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "API_URL", "\"https://gist.githubusercontent.com/t-reed/739df99e9d96700f17604a3971e701fa/raw/1d4dd9c5a0ec758ff5ae92b7b13fe4d57d34e1dc/\""
+            debuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    }
+}
+
+dependencies {
+    implementation(Deps.appCompat)
+    implementation(Deps.appSupport)
+    implementation(Deps.recyclerView)
+    testImplementation(Deps.jUnit)
+    testImplementation(Deps.coroutinesTest)
+    testImplementation(Deps.architectureTest)
+    testImplementation(Deps.mockitoKotlin)
+}
