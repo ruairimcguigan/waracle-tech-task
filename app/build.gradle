@@ -77,8 +77,14 @@ dependencies {
     testImplementation(Deps.architectureTest)
     testImplementation(Deps.mockitoKotlin)
     testImplementation 'junit:junit:4.12'
-    testImplementation 'junit:junit:4.12'
+    testImplementation(Deps.mockWebServer)
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "com.squareup.okhttp3:okhttp:${Versions.okHttpVersion}"
+    }
 }
