@@ -6,4 +6,6 @@ pluginManagement {
     }
 }
 include ':app'
+include ':domain'
+include ':data'
 rootProject.name = "Waracle Tech Task"

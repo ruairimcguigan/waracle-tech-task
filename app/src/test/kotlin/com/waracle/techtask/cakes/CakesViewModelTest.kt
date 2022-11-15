@@ -2,8 +2,10 @@ package com.waracle.techtask.cakes
 
 import com.waracle.techtask.datasource.*
 import com.waracle.techtask.iteractors.GetCakesInteractorFake
+import com.waracle.techtask.iteractors.filteredCakeResponse
+import com.waracle.techtask.iteractors.sortedCakeResponse
 import com.waracle.techtask.ui.CakesUiState
-import com.waracle.techtask.ui.cakes.CakesViewModel
+import com.waracle.techtask.ui.CakesViewModel
 import com.waracle.techtask.util.CoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert.assertEquals

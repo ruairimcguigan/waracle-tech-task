@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ui.cakes.CakesActivity"
+            android:name=".ui.CakesActivity"
             android:exported="true"
             android:theme="@style/Theme.TechTask">
             <intent-filter>
