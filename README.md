@@ -21,10 +21,10 @@
 - Jetpack Compose + associated test apis
 
 ## Added the following commits/improvements
-FIRST CHANGE: refactored project to use clean architecture enforced by modules and shared gradle dependencies
-SECOND CHANGE: refactored ui layer to use Jetpack Compose in place of xml views
-THIRD CHANGE: added instrumentation ui tests for CakesActivity composables
-FOURTH CHANGE: added integration ui tests for CakesActivity
+- FIRST CHANGE: refactored project to use clean architecture enforced by modules and shared gradle dependencies
+- SECOND CHANGE: refactored ui layer to use Jetpack Compose in place of xml views
+- THIRD CHANGE: added instrumentation ui tests for CakesActivity composables
+- FOURTH CHANGE: added integration ui tests for CakesActivity
 
 ### Further suggestion improvements
 - add persistance (RoomDb) reduce network calls/ reduce battery use
