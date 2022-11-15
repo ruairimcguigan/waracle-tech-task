@@ -1,6 +1,6 @@
-package com.waracle.techtask.model
+package com.waracle.techtask.ui
 
-data class CakeItemDomain(
+data class CakeUi(
     val title: String,
     val desc: String,
     val image: String,

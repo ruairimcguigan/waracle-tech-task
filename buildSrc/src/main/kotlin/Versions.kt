@@ -24,5 +24,5 @@ object Versions {
     const val mockitoKotlinVersion = "4.0.0"
     const val mockitoAndroidVersion = "4.3.1"
     const val okHttpVersion = "4.9.3"
-    const val picassoVersion = "2.5.2"
+    const val coilVersion = "2.0.0"
 }

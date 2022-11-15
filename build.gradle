@@ -5,6 +5,7 @@ buildscript {
 //        retrofit_version = '2.9.0'
 //        room_version = "2.4.2"
         hilt_version = '2.42'
+        compose_ui_version = '1.1.1'
 //        lifecycle_version = '2.4.1'
 //        activity_compose_version = '1.4.0'
 //        compose_runtime_version = '1.2.0-alpha08'

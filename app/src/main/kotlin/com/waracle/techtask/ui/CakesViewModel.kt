@@ -3,7 +3,8 @@ package com.waracle.techtask.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.waracle.techtask.interactors.GetCakesInteractor
-import com.waracle.techtask.ui.CakesUiState.Success
+import com.waracle.techtask.model.Result
+import com.waracle.techtask.ui.CakesUiState.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
@@ -17,7 +18,7 @@ class CakesViewModel @Inject constructor(
     private val getCakesInteractor: GetCakesInteractor,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<CakesUiState>(CakesUiState.Loading)
+    private val _uiState = MutableStateFlow<CakesUiState>(Loading)
     val uiState: StateFlow<CakesUiState> = _uiState
 
     private var loadingJob: Job? = null
@@ -27,23 +28,25 @@ class CakesViewModel @Inject constructor(
     }
 
     private fun getCakes() {
-        _uiState.value = CakesUiState.Loading
+        _uiState.value = Loading
 
         loadingJob?.cancel()
         loadingJob = viewModelScope.launch {
             when (val response = getCakesInteractor()) {
-                is com.waracle.techtask.model.Result.Success ->
+                is Result.Success ->
                     Success(cakes = response.data
+                        .map { CakeUi(it.title, it.desc, it.image) }
                         .sortedBy { it.title }
-                        .distinct()).also {
+                        .distinct()
+                    ).also {
                         _uiState.value = it
                     }
 
-                is com.waracle.techtask.model.Result.Error ->
+                is Result.Error ->
                     _uiState.value = response.error
                         .takeUnless { it is CancellationException }
                         ?.let(CakesUiState::Error)
-                        ?: CakesUiState.Loading
+                        ?: Loading
             }
         }
     }

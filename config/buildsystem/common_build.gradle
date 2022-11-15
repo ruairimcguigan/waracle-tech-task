@@ -54,7 +54,7 @@ dependencies {
     implementation(Deps.materialDesign)
     implementation(Deps.composeUiTooling)
     implementation(Deps.composeRuntime)
-    implementation(Deps.picasso)
+    implementation(Deps.composeCoil)
     implementation(Deps.viewmodelComposeLivedata)
     implementation(Deps.activityCompose)
     implementation(Deps.viewmodelCompose)

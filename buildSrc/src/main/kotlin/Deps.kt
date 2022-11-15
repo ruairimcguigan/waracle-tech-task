@@ -17,7 +17,7 @@ object Deps {
     const val viewmodelComposeRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleVersion}"
     const val viewmodelComposeViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycleVersion}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
-    const val picasso = "com.squareup.picasso:picasso:${Versions.picassoVersion}"
+    const val composeCoil = "io.coil-kt:coil-compose:${Versions.coilVersion}"
     const val moshiRetrofit = "com.squareup.retrofit2:converter-moshi:${Versions.retrofitVersion}"
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
     const val gson = "com.google.code.gson:gson:${Versions.gsonVersion}"
