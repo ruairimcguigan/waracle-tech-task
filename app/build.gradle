@@ -12,7 +12,7 @@ android {
         minSdk AppConfig.minSdkVersion
         targetSdk AppConfig.targetSdkVersion
 
-        testInstrumentationRunner "com.waracle.techtask.testrunner.MockTestRunner"
+        testInstrumentationRunner AppConfig.testInstrumentationRunner
         consumerProguardFiles AppConfig.consumerProguardFiles
     }
 
@@ -30,6 +30,13 @@ android {
     testOptions.unitTests.all {
         testLogging {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+        useJUnitPlatform()
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
         }
     }
 
@@ -69,6 +76,8 @@ dependencies {
     testImplementation(Deps.coroutinesTest)
     testImplementation(Deps.architectureTest)
     testImplementation(Deps.mockitoKotlin)
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"

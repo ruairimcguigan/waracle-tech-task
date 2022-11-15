@@ -59,9 +59,9 @@ fun CakeListItem(cakeUi: CakeUi) {
 }
 
 @Composable
-private fun CakeImage(cakeUrl: String) = Image(
+fun CakeImage(cakeUrl: String) = Image(
     painter = rememberAsyncImagePainter(cakeUrl),
-    contentDescription = null,
+    contentDescription = "a cake",
     modifier = Modifier
         .padding(grid_2)
         .size(grid_21)
@@ -110,7 +110,7 @@ fun ToolbarWithRefreshAction(
     backgroundColor = Purple500,
     actions = {
         IconButton(onClick = { retryFetchCakes() }) {
-            Icon(painterResource(id = refreshIcon), "", tint = Color.White)
+            Icon(painterResource(id = refreshIcon), "click me to refresh", tint = Color.White)
         }
     })
 
